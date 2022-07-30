@@ -1,6 +1,7 @@
 <script context="module">
   import { gql } from 'graphql-request'
   import { client } from '$lib/graphql-client'
+  import ProjectCard from '$lib/components/project-card.svelte'
 
   export const load = async () => {
 
@@ -35,16 +36,10 @@
   let projects;
 </script>
 
-{#each projects as project}
-  <div>
-    <img src={project.image[0].url} alt={project.name} />
-    <a href={`/projects/${project.slug}`}>
-      <div>
-        <h2>{project.name}</h2>
-        <p>
-          {project.description.slice(0, 80)}...
-        </p>
-      </div>
-    </a>
-  </div>
-{/each}
+<h1> My first Svelte project </h1>
+
+<div>
+  {#each projects as { name, slug, description, image }}
+    <ProjectCard {name} {description} url={image[0].url} {slug} />
+  {/each}
+</div>
