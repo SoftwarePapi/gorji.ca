@@ -1,10 +1,9 @@
 <script context="module">
-  import { gql } from 'graphql-request'
-  import { client } from '$lib/graphql-client'
-  import ProjectCard from '$lib/components/project-card.svelte'
+  import { gql } from "graphql-request";
+  import { client } from "$lib/graphql-client";
+  import ProjectCard from "$lib/components/project-card.svelte";
 
   export const load = async () => {
-
     const query = gql`
       query GetProjects {
         projects {
@@ -36,7 +35,7 @@
   let projects;
 </script>
 
-<h1> My first Svelte project </h1>
+<h1>My first Svelte project</h1>
 
 <div>
   {#each projects as { name, slug, description, image }}
