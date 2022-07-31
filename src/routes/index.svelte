@@ -2,6 +2,7 @@
   import ProjectCard from '$lib/components/project-card.svelte'
   import { client } from '$lib/graphql-client'
   import { authorsQuery, projectsQuery } from '$lib/graphql-queries'
+  //import { load } from '$routes/[slug].svelte'
 
   export const load = async () => {
     const [authorReq, projectsReq] = await Promise.all([
